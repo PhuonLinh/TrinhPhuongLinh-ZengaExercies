@@ -13,21 +13,20 @@ public class MoveCubeWithRayCast : MonoBehaviour
        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0)) // Kiểm tra nếu chuột trái được nhấn giữ
+        if (Input.GetMouseButton(0)) 
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit)) // Nếu raycast chạm vào đối tượng
+            if (Physics.Raycast(ray, out hit)) 
             {
-                if (hit.collider.CompareTag("Ground")) // Kiểm tra xem có chạm vào quad không
+                if (hit.collider.CompareTag("Ground")) 
                 {
                     Vector3 newPosition = hit.point;
-                    newPosition.y = cube.position.y; // Giữ nguyên chiều cao của cube
-                    cube.position = newPosition; // Cập nhật vị trí cube
+                    newPosition.y = cube.position.y; 
+                    cube.position = newPosition; 
                 }
             }
         }
